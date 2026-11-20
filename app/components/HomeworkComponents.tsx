@@ -103,8 +103,8 @@ export function StoreSection() {
         <table>
           <thead><tr><th scope="col">Product</th><th scope="col">Details</th><th scope="col">Price</th></tr></thead>
           <tbody>
-            {status === "loading" && <tr><td colSpan="3" className="table-message">Gathering the collection…</td></tr>}
-            {status === "error" && <tr><td colSpan="3" className="table-message">The collection could not load. Please check your connection and refresh.</td></tr>}
+            {status === "loading" && <tr><td colSpan={3} className="table-message">Gathering the collection…</td></tr>}
+            {status === "error" && <tr><td colSpan={3} className="table-message">The collection could not load. Please check your connection and refresh.</td></tr>}
             {status === "ready" && filtered.map((product) => (
               <tr key={product.id}>
                 <td><div className="product-image"><img src={product.image} alt="" loading="lazy" /></div></td>
@@ -112,7 +112,7 @@ export function StoreSection() {
                 <td className="price">${product.price.toFixed(2)}</td>
               </tr>
             ))}
-            {status === "ready" && filtered.length === 0 && <tr><td colSpan="3" className="table-message">No products match “{query}”. Try another search.</td></tr>}
+            {status === "ready" && filtered.length === 0 && <tr><td colSpan={3} className="table-message">No products match “{query}”. Try another search.</td></tr>}
           </tbody>
         </table>
       </div>
