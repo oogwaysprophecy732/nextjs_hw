@@ -7,6 +7,7 @@ const GITHUB_URL = "https://github.com/oogwaysprophecy732/nextjs_hw";
 type CounterProps = {
   title: string;
   step: 1 | 2;
+  color: string;
 };
 
 type Product = {
@@ -17,7 +18,7 @@ type Product = {
   price: number;
 };
 
-function Counter({ title, step }: CounterProps) {
+function Counter({ title, step, color }: CounterProps) {
   const [count, setCount] = useState(0);
 
   function increment() {
@@ -33,7 +34,7 @@ function Counter({ title, step }: CounterProps) {
         <span className="eyebrow">{title}</span>
         <p className="count" aria-live="polite">{count}</p>
       </div>
-      <button onClick={increment}>
+      <button style={{ backgroundColor: color }} onClick={increment}>
         +{step}
       </button>
     </article>
@@ -47,8 +48,8 @@ export function CounterSection() {
         <div><h2>Counter</h2></div>
       </div>
       <div className="counter-grid">
-        <Counter title="One at a time" step={1} />
-        <Counter title="Two at a time" step={2} />
+        <Counter title="One at a time" step={1} color="#d9f36a" />
+        <Counter title="Two at a time" step={2} color="#ffb899" />
       </div>
     </section>
   );
